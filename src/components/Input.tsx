@@ -29,14 +29,14 @@ const Input = ({
             currentInput.current?.value.replace(",", ".");
 
         if (newValue && currentInput.current) {
-            currentInput.current.value = newValue;
+            currentInput.current.value ??= newValue;
         }
     };
 
     const calculateMolarMass = () => {
         const { molarMassInput, chemicalFormulaInput } = refs;
         if (molarMassInput.current && chemicalFormulaInput.current) {
-            molarMassInput.current.value = getFinalMolecularMass(
+            molarMassInput.current.value &&= getFinalMolecularMass(
                 chemicalFormulaInput.current.value
             ).toString();
         }
